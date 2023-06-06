@@ -5,3 +5,7 @@ publisher VARCHAR(500),
 developer VARCHAR(500),
 total_shipped FLOAT,
 year_ INT);
+# create games_reviews table
+CREATE TABLE games_reviews(name_ VARCHAR(500),
+critic_score FLOAT,
+user_score FLOAT);
