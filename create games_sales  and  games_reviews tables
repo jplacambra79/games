@@ -1,0 +1,7 @@
+# create games_sales table
+CREATE TABLE games_sales (name_ VARCHAR(500),
+platform VARCHAR(500),
+publisher VARCHAR(500),
+developer VARCHAR(500),
+total_shipped FLOAT,
+year_ INT);
