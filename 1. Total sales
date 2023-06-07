@@ -1,0 +1,2 @@
+SELECT ROUND(SUM(total_shipped),0) AS total_sales_mill_USD
+FROM `games_sales`;
