@@ -1,0 +1,7 @@
+SELECT DISTINCT `publisher`,
+ROUND(SUM(`total_shipped`) OVER (PARTITION BY `publisher`)/(
+SELECT SUM(`total_shipped`) FROM `games_sales`)*100,1)  AS market_share
+FROM `games_sales`
+WHERE `year_` BETWEEN 1978 AND 2020
+ORDER BY market_share DESC
+LIMIT 10;
