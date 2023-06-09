@@ -1,0 +1,14 @@
+SELECT `games_reviews`.`name_`,
+`games_reviews`.`user_score`,
+`games_sales`.`total_shipped` AS total_sales_mill_USD,
+`games_sales`.`year_`
+FROM `games_db`.`games_reviews`
+LEFT JOIN `games_db`.`games_sales`
+ON `games_reviews`.`name_`=`games_sales`.`name_`
+WHERE `games_reviews`.`user_score`> (SELECT AVG(`user_score`) 
+FROM `games_reviews`)
+GROUP BY `games_reviews`.`name_`, 
+`games_reviews`.`user_score`,
+`games_sales`.`total_shipped`,`games_sales`.`year_`
+ORDER BY `games_sales`.`total_shipped` DESC
+LIMIT 10;
