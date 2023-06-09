@@ -1,0 +1,6 @@
+SELECT `platform`, 
+ROUND(SUM(`total_shipped`),0) AS total_sales_mill_USD
+FROM `games_sales`
+GROUP BY `platform`
+ORDER BY total_sales_mill_USD DESC
+LIMIT 10;
