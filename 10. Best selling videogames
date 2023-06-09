@@ -1,0 +1,15 @@
+# 10.1. Total sales 
+SELECT `name_`, 
+ROUND(SUM(`total_shipped`),1) AS total_sales
+FROM `games_sales`
+GROUP BY `name_`
+ORDER BY total_sales DESC
+LIMIT 10;
+# 10.2. proportion of total sales
+SELECT DISTINCT `name_`,
+ROUND(SUM(`total_shipped`) OVER (PARTITION BY `name_`)/(
+SELECT SUM(`total_shipped`) FROM `games_sales`)*100,1)  AS market_share
+FROM `games_sales`
+WHERE `year_` BETWEEN 1978 AND 2020
+ORDER BY market_share DESC
+LIMIT 10;
