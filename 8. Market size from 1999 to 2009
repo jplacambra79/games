@@ -1,0 +1,11 @@
+8.1. by year
+SELECT `year_`,
+ROUND(SUM(`total_shipped`),1)  AS total_sales_1999_09
+FROM `games_sales`
+WHERE `year_` BETWEEN 1999 AND 2009
+GROUP BY `year_`
+ORDER BY `year_`;
+8.2. Aggregated
+SELECT ROUND(SUM(`total_shipped`),1) AS total_sales_1999_09
+FROM `games_sales`
+WHERE `year_` BETWEEN 1999 AND 2009;
