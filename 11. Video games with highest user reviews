@@ -1,0 +1,5 @@
+SELECT `name_`,
+`user_score`
+FROM `games_reviews`
+ORDER BY `user_score` DESC
+LIMIT 10;
